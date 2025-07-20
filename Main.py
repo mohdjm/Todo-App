@@ -8,4 +8,17 @@ def show_menu():
     print("4. Delete Task")
     print("5. Exit")
 
+def view_tasks(tasks):
+    if not tasks:
+        print("No tasks found.")
+    else:
+        print("\nYour Tasks:")
+        for idx, task in enumerate(tasks):
+            status = "✓" if task["done"] else "✗"
+            print(f"{idx + 1}. [{status}] {task['name']}")
+
+def add_task(tasks):
+    name = input("Enter task name: ")
+    tasks.append({"name": name, "done": False})
+    print("Task added.")
 show_menu()
